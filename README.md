@@ -26,7 +26,7 @@ Dependencies: see `requirements.txt` (Python 3, LightGBM, scikit-learn, SciPy, p
 
 | Article element | Notebook section | Output folder in `results/` |
 |---|---|---|
-| Strata (S1, S2, S3, blind zone) | 01, "Strata validation" | `01_validate` |
+| validate.json
 | Table 4 (rule and history refresh), expert in the blind zone | 01, "Rule and history refresh" | `02_rule_refresh` |
 | Table 3 (anomaly detectors) | 01, "Anomaly detectors" | `03_detectors` |
 | Fingerprint of the expert | 01, "Fingerprint" | `04_fingerprint` |
