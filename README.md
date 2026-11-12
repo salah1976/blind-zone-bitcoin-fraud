@@ -4,7 +4,7 @@ Code and result tables for the article "When Address History Is Silent: Blind Zo
 
 ## Data
 
-The BitFraud benchmark (six chronological Bitcoin snapshots, pseudonymised transactions, graph and labels) is archived on Zenodo: 10.5281/zenodo.24170215. The Elliptic++ files used in the external check are available from the Elliptic++ authors.
+The BitFraud benchmark (six chronological Bitcoin snapshots, pseudonymised transactions, graph and labels) is archived on Zenodo: https://doi.org/10.5281/zenodo.24170215. The Elliptic++ files used in the external check are available from the Elliptic++ authors.
 
 ## Contents
 
