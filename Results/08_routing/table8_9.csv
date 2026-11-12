@@ -1,0 +1,9 @@
+protocol,K,f_by_fold,baseline_TP,routed_TP,dTP
+test_selected_leaky,1000,"[0, 0, 0]",1594,1628,34
+validation_selected,1000,"[0, 0, 0]",1594,1628,34
+test_selected_leaky,2000,"[0, 0, 0]",2817,2887,70
+validation_selected,2000,"[0, 0, 0]",2817,2887,70
+test_selected_leaky,5000,"[0.1, 0, 0]",5339,5491,152
+validation_selected,5000,"[0, 0, 0]",5339,5473,134
+test_selected_leaky,10000,"[0, 0, 0]",6157,6457,300
+validation_selected,10000,"[0.02, 0, 0]",6157,6421,264

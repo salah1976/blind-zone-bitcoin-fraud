@@ -1,0 +1,112 @@
+\begin{table}[t]
+\centering
+\caption{Generic anomaly detectors on the new-address region (13 content features, 512,656 transactions, 30 positives). Intervals: stratified bootstrap; $p$: label-permutation test (upper tail).}
+\label{tab:detectors}
+\begin{tabular}{lrrr}
+\toprule
+Detector & AUC-ROC & 95\% interval & $p$ \\
+\midrule
+Isolation Forest & 0.540 & [0.451, 0.632] & 0.223 \\
+Local Outlier Factor & 0.248 & [0.180, 0.322] & 1.000 \\
+One-Class SVM & 0.347 & [0.244, 0.468] & 0.999 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{AUC-PR of the address-history rule by history policy.}
+\label{tab:refresh}
+\begin{tabular}{lrrrr}
+\toprule
+History policy & D5 & D6 & Pooled & Blind positives \\
+\midrule
+Static (D1 to D3) & 0.772 & 0.964 & 0.923 & 165 \\
+Window of 3 snapshots & 0.907 & 0.990 & 0.967 & 106 \\
+Cumulative & 0.895 & 0.987 & 0.964 & 105 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Share of blind-zone positives retrieved when the top $k\%$ of the blind zone is examined, ranked by the expert (95\% bootstrap interval).}
+\label{tab:workload}
+\begin{tabular}{lrrr}
+\toprule
+Examined (\%) & Static (165 pos.) & Window of 3 (106) & Cumulative (105) \\
+\midrule
+1 & 0.12 [0.08, 0.18] & 0.15 [0.09, 0.22] & 0.15 [0.09, 0.23] \\
+5 & 0.56 [0.48, 0.63] & 0.58 [0.50, 0.68] & 0.64 [0.55, 0.73] \\
+10 & 0.86 [0.81, 0.92] & 0.81 [0.73, 0.89] & 0.82 [0.73, 0.89] \\
+20 & 0.91 [0.87, 0.95] & 0.89 [0.82, 0.94] & 0.90 [0.83, 0.94] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Content scores in the blind zone under the static history (165 positives).}
+\label{tab:scores}
+\begin{tabular}{lrrrrrr}
+\toprule
+Method & ROC Blind & S2 & S3 & AUC-PR Blind & Lift & Recall top 5\% \\
+\midrule
+Expert (supervised) & 0.928 & 0.912 & 0.836 & 0.0030 & 11.4 & 0.56 \\
+Fixed signature (typology) & 0.659 & 0.572 & 0.752 & 0.0005 & 1.9 & 0.10 \\
+Selected, no prior history & 0.796 & 0.737 & 0.725 & 0.0010 & 3.8 & 0.18 \\
+Selected, all positives & 0.918 & 0.945 & 0.677 & 0.0093 & 35.0 & 0.80 \\
+Selected, all positives, no dominant addresses & 0.838 & 0.787 & 0.685 & 0.0013 & 5.1 & 0.25 \\
+Mean rank (expert, selected on all) & 0.932 & 0.939 & 0.784 & 0.0054 & 20.3 & 0.79 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Consolidation score, walk-forward validation across four folds; the features are chosen on the training snapshots of each fold only.}
+\label{tab:walkforward}
+\begin{tabular}{lrrr}
+\toprule
+Fold & Positives & AUC-ROC & $p$-value \\
+\midrule
+D1 $\to$ D2 & 83 & 0.767 & $<0.001$ \\
+D1D2 $\to$ D3 & 12 & 0.644 & 0.042 \\
+D1D2D3 $\to$ D4 & 15 & 0.450 & 0.744 \\
+D1D2D3 $\to$ D5D6 & 30 & 0.706 & $<0.001$ \\
+Pooled & 140 & 0.681 & $<0.001$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Initial routing evaluation, $f$ selected on each fold's test set (3 folds).}
+\label{tab:route_leak}
+\begin{tabular}{lrrr}
+\toprule
+Budget $K$ & Baseline TP & Routed TP & $\Delta$TP \\
+\midrule
+1,000 & 1,594 & 1,628 & +34 \\
+2,000 & 2,817 & 2,887 & +70 \\
+5,000 & 5,339 & 5,491 & +152 \\
+10,000 & 6,157 & 6,457 & +300 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Corrected routing evaluation, $f$ selected on validation and applied unchanged to test (same 3 folds).}
+\label{tab:route_valid}
+\begin{tabular}{lrrrr}
+\toprule
+Budget $K$ & $f$ selected & Baseline TP & Routed TP & $\Delta$TP \\
+\midrule
+1,000 & 0 (all folds) & 1,594 & 1,628 & +34 \\
+2,000 & 0 (all folds) & 2,817 & 2,887 & +70 \\
+5,000 & 0 (all folds) & 5,339 & 5,473 & +134 \\
+10,000 & 0.02, 0, 0 & 6,157 & 6,421 & +264 \\
+\bottomrule
+\end{tabular}
+\end{table}
