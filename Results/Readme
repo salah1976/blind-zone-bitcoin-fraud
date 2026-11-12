@@ -1,1 +1,22 @@
+Results
 
+Output tables of the pipeline, as used in the article. One folder per step; every file is a CSV or JSON written by the notebooks in notebooks/.
+
+Folder or file	Content	Article
+validate.json	Size and positives of each stratum (S1, S2, S3, blind zone)	Section 4.1
+02_rule_refresh/	Rule and history refresh (table4.csv), paired differences (diff.csv), groups (groups.csv), expert in the blind zone (blind.csv)	Table 4
+03_detectors/	Anomaly detectors (table3.csv)	Table 3
+04_fingerprint/	Fingerprint of the expert (fingerprint_metrics.csv, fingerprint_diff.csv)	Section 6
+05_consolidation/	Consolidation score: metrics, differences, feature selection	Section 6
+06_workload/	Review workload (table5.csv, fixed_signature.csv)	Table 5
+07_walkforward/	Walk-forward validation (table7.csv)	Table 7
+08_routing/	Budget routing (routing_by_f.csv, table8_9.csv)	Tables 8 and 9
+09_elliptic_blind/	Elliptic++ blind-zone analysis (blind.csv, diff.csv, strata.csv, summary.csv)	Elliptic++ check
+10_elliptic_refresh/	Elliptic++ expert retraining (step_metrics.csv, period_metrics.csv, diff.csv)	Table 11
+11_regime/	Training on the blind regime: per seed, summary, bootstrap	Table 2, remedies 1 and 2
+12_remedies/	Co-spend grid, threshold routing (tau_table.csv, tau_diff.csv, tau_selected.json)	Table 2, remedies 3 and 4
+13_strata_profile/	Strata comparison and profile of the positives (strata_*.csv, profile_ks.csv)	Section 4.1, Section 6.2
+14_enriched/	Enriched features (enriched_blind.csv, enriched_diff.csv)	Table 2, remedy 5
+tables.tex	LaTeX source of the result tables	
+
+Differences (diff files) are paired differences with 95 % cluster-bootstrap intervals (clusters are the dominant address of each transaction). Metrics are computed on the blind zone (the 622,231 test transactions of S2 and S3, 165 positives) unless a file states another population.
