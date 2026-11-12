@@ -1,1 +1,13 @@
+Notebooks
 
+Two Google Colab notebooks reproduce the results of the article. Run the cells in order.
+
+Notebook	Content	Outputs
+01_blind_zone_pipeline.ipynb	Main pipeline on BitFraud: strata, address-history rule and history refresh, anomaly detectors, consolidation score, review workload, walk-forward validation, budget routing, remedies and enriched features.	results/02_rule_refresh to results/08_routing, results/11_regime to results/14_enriched, results/validate.json
+02_elliptic_blind_zone.ipynb	Blind-zone analysis and expert retraining on Elliptic++ (CPU only).	results/09_elliptic_blind, results/10_elliptic_refresh
+Setup
+Place the BitFraud files (Zenodo record) under ROOT/01_data/ and the Elliptic++ files under ROOT/elliptic_plus_plus/.
+Set ROOT in the notebooks to your project folder. The notebooks use /content/drive/MyDrive/bitcoin_snapshots_project (a Google Drive path in Colab).
+Outputs are written to ROOT/05_results/bz/; the copy in results/ is the one used in the article.
+
+Each section title of the first notebook names the output folder it writes. Seeds are fixed in the code. Dependencies are listed in requirements.txt at the root of the repository.
